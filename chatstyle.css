@@ -6,10 +6,10 @@
 }
 
 body {
-  background: #1ddced;
+  background: #574744;
 }
 
-.chatbox {
+.box {
   width: 500px;
   min-width: 390px;
   height: 600px;
@@ -25,15 +25,6 @@ body {
   height: 450px;
   overflow-x: hidden;
   overflow-y: scroll;
-}
-
-.chatlogs::-webkit-scrollbar {
-  width: 10px;
-}
-
-.chatlogs::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background: rgba(0, 0, 0, .1);
 }
 
 .chat {
@@ -53,11 +44,11 @@ body {
 }
 
 .friend .chat-message {
-  background: #1adda4;
+  background: #A29C9B;
 }
 
 .self .chat-message {
-  background: #1ddced;
+  background: #574744;
   order: -1;
 }
 
@@ -76,7 +67,7 @@ body {
 .chat-form {
   margin-top: 20px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .chat-form textarea {
@@ -105,20 +96,132 @@ body {
 }
 
 .chat-form button {
-  background: #1ddced;
+  background: #574744;
   padding: 5px 15px;
+  width: 50%;
+  resize: none;
+  text-align: center;
   font-size: 30px;
   color: #fff;
   border: none;
   margin: 0 10px;
   border-radius: 3px;
-  box-shadow: 0 3px 0 #0eb2c1;
+  box-shadow: 0 3px 0 black;
   cursor: pointer;
+  align-items: center;
   -webkit-transaction: background .2s ease;
   -moz-transaction: backgroud .2s ease;
   -o-transaction: backgroud .2s ease;
 }
 
 .chat-form button:hover {
-  background: #13c8d9;
+  background: green;
+}
+
+.counters {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  height: 50px;
+}
+
+.counters p{
+  padding: 10px;
+  width: 50%;
+  border: 2px solid #eee;
+  border-radius: 3px;
+  resize: none;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  background-color: #574744;
+}
+
+.codebox {
+  padding: 10px;
+  width: 100%;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.codebox input{
+  padding: 10px;
+  width: 100%;
+  height: 400px;
+  background: #fbfbfb;
+  border: 2px solid #eee;
+  border-radius: 3px;
+  size: 2000;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+}
+
+.codebox input::-webkit-scrollbar {
+  width: 10px;
+}
+
+.codebox input::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content textarea {
+  background: #fbfbfb;
+  width: 100%;
+  height: 200px;
+  border: 2px solid #eee;
+  border-radius: 3px;
+  resize: none;
+  padding: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.modal-content textarea:focus {
+  background: #fff;
+}
+
+.modal-content textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-content textarea::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .1);
 }

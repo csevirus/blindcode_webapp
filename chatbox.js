@@ -98,3 +98,64 @@ function keypress(event) {
   }
   return true;
 }
+
+// returns char for corresponding keycode
+function getChar(event) {
+
+  // event.which returns the key or mouse button clicked
+  if (event.which == null) {
+
+    // Return the char if not a special character
+    return String.fromCharCode(event.keyCode); // IE
+  } else if (event.which!=0 && event.charCode!=0) {
+    return String.fromCharCode(event.which);   // Other Browsers
+  } else {
+    return null; // Special Key Clicked
+  }
+}
+
+var countdown = {
+  minutes: 5,
+  seconds: 0,
+  x: 0,
+  charcount: 0,
+  codestr: "",
+  myClock: function() {
+    if(countdown.seconds == 0)
+    {
+      countdown.minutes = countdown.minutes - 1;
+      countdown.seconds = 59;
+    }
+    else {
+      countdown.seconds = countdown.seconds - 1;
+    }
+    document.getElementById("timer").innerHTML ="<b>TimeLeft </b>- 0" + countdown.minutes + ":" + countdown.seconds ;
+    if (countdown.minutes < 0) {
+      document.getElementById("timer").innerHTML = "<b>TimeLeft </b>- EXPIRED";
+      countdown.stop();
+    }
+  },
+  clock: function() {
+    x = setInterval(countdown.myClock,1000);
+  },
+  stop: function() {
+    clearInterval(x);
+    countdown.submit();
+  },
+  charpress: function(event) {
+    countdown.charcount += 1;
+    document.getElementById("charcount").innerHTML =" <b>CharacterCount :</b>" + countdown.charcount;
+    var char = getChar(event);
+    if(char != null)
+    countdown.codestr += char;
+  },
+  retry: function() {
+    countdown.codestr = "";
+    document.getElementById("code").value = "";
+  },
+  submit: function() {
+    // display code written so far and the result
+    document.getElementById('result').value = countdown.codestr;
+    document.getElementById("modal").style.display = "block";
+  }
+}
