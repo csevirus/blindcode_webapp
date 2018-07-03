@@ -103,6 +103,8 @@ function keypress(event) {
 function getChar(event) {
 
   // event.which returns the key or mouse button clicked
+  if(event.keyCode == 13)
+  return "\n"
   if (event.which == null) {
 
     // Return the char if not a special character
@@ -143,6 +145,13 @@ var countdown = {
     countdown.submit();
   },
   charpress: function(event) {
+    // pervent Backspace
+    if(event.keyCode == 8)
+    {
+      event.preventDefault();
+      alert("Backspace is not allowed here");
+      return ;
+    }
     countdown.charcount += 1;
     document.getElementById("charcount").innerHTML =" <b>CharacterCount :</b>" + countdown.charcount;
     var char = getChar(event);
@@ -151,6 +160,8 @@ var countdown = {
   },
   retry: function() {
     countdown.codestr = "";
+    countdown.charcount = 0;
+    document.getElementById("charcount").innerHTML =" <b>CharacterCount :</b> " + countdown.charcount;
     document.getElementById("code").value = "";
   },
   submit: function() {
@@ -158,4 +169,9 @@ var countdown = {
     document.getElementById('result').value = countdown.codestr;
     document.getElementById("modal").style.display = "block";
   }
+}
+
+function noPaste() {
+  countdown.retry();
+  alert("You cannot paste here ... it's cheating");
 }

@@ -70,7 +70,7 @@ body {
   align-items: center;
 }
 
-.chat-form textarea {
+.chat-form input {
   background: #fbfbfb;
   width: 75%;
   height: 50px;
@@ -82,15 +82,15 @@ body {
   color: #333;
 }
 
-.chat-form textarea:focus {
+.chat-form input:focus {
   background: #fff;
 }
 
-.chat-form textarea::-webkit-scrollbar {
+.chat-form input::-webkit-scrollbar {
   width: 10px;
 }
 
-.chat-form textarea::-webkit-scrollbar-thumb {
+.chat-form input::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: rgba(0, 0, 0, .1);
 }

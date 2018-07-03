@@ -18,7 +18,8 @@
       </div>
     </div>
     <div class="chat-form">
-      <textarea id="message" placeholder="Type here.." onkeypress="keypress(event)"></textarea>
+      <input type="text" id="message" placeholder="Type here.." onkeypress="keypress(event)">
+      <!-- <textarea id="message" placeholder="Type here.." onkeypress="keypress(event)"></textarea> -->
       <button onclick="var msg=document.getElementById('message').value;add(msg)">Send</button>
     </div>
   </div>

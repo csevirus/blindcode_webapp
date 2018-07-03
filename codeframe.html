@@ -11,7 +11,7 @@
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
-      <textarea id='result'></textarea>
+      <textarea id='result' disabled></textarea>
     </div>
   </div>
   <div class="box">
@@ -20,7 +20,7 @@
       <p id="charcount"> <b>CharacterCount :</b> 0 </p>
     </div>
     <div class="codebox">
-      <input type="password" placeholder="Type here.." id="code" onkeypress="countdown.charpress(event)">
+      <input type="password" placeholder="Type here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()">
     </div>
     <div class="chat-form">
       <button type="button" onclick="countdown.retry()">Retry</button>
