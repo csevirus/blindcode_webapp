@@ -145,7 +145,7 @@ body {
   overflow-y: scroll;
 }
 
-.codebox input{
+.codebox textarea{
   padding: 10px;
   width: 100%;
   height: 400px;
@@ -158,11 +158,11 @@ body {
   display: flex;
 }
 
-.codebox input::-webkit-scrollbar {
+.codebox textarea::-webkit-scrollbar {
   width: 10px;
 }
 
-.codebox input::-webkit-scrollbar-thumb {
+.codebox textarea::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: rgba(0, 0, 0, .1);
 }

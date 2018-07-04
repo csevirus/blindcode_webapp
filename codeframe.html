@@ -20,7 +20,8 @@
       <p id="charcount"> <b>CharacterCount :</b> 0 </p>
     </div>
     <div class="codebox">
-      <input type="password" placeholder="Type here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()">
+      <textarea placeholder="Type here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()"></textarea>
+      <!-- <input type="password" placeholder="Type here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()"> -->
     </div>
     <div class="chat-form">
       <button type="button" onclick="countdown.retry()">Retry</button>
