@@ -101,16 +101,13 @@ function keypress(event) {
 
 // returns char for corresponding keycode
 function getChar(event) {
-
-  // event.which returns the key or mouse button clicked
-  if(event.keyCode == 13)
-  return "\n"
+  if (event.keyCode == 13)
+    return "\n";
   if (event.which == null) {
-
     // Return the char if not a special character
     return String.fromCharCode(event.keyCode); // IE
-  } else if (event.which!=0 && event.charCode!=0) {
-    return String.fromCharCode(event.which);   // Other Browsers
+  } else if (event.which != 0 && event.charCode != 0) {
+    return String.fromCharCode(event.which); // Other Browsers
   } else {
     return null; // Special Key Clicked
   }
@@ -123,22 +120,20 @@ var countdown = {
   charcount: 0,
   codestr: "",
   myClock: function() {
-    if(countdown.seconds == 0)
-    {
+    if (countdown.seconds == 0) {
       countdown.minutes = countdown.minutes - 1;
       countdown.seconds = 59;
-    }
-    else {
+    } else {
       countdown.seconds = countdown.seconds - 1;
     }
-    document.getElementById("timer").innerHTML ="<b>TimeLeft </b>- 0" + countdown.minutes + ":" + countdown.seconds ;
+    document.getElementById("timer").innerHTML = "<b>TimeLeft </b>- 0" + countdown.minutes + ":" + countdown.seconds;
     if (countdown.minutes < 0) {
       document.getElementById("timer").innerHTML = "<b>TimeLeft </b>- EXPIRED";
       countdown.stop();
     }
   },
   clock: function() {
-    x = setInterval(countdown.myClock,1000);
+    x = setInterval(countdown.myClock, 1000);
   },
   stop: function() {
     clearInterval(x);
@@ -146,24 +141,23 @@ var countdown = {
   },
   charpress: function(event) {
     // pervent Backspace
-    if(event.keyCode == 8)
-    {
+    if (event.keyCode == 8) {
       event.preventDefault();
       alert("Backspace is not allowed here");
-      return ;
+      return;
     }
     countdown.charcount += 1;
-    document.getElementById("charcount").innerHTML =" <b>CharacterCount :</b>" + countdown.charcount;
+    document.getElementById("charcount").innerHTML = " <b>CharacterCount :</b>" + countdown.charcount;
     var char = getChar(event);
-    if(char != null)
-    countdown.codestr += char;
+    if (char != null)
+      countdown.codestr += char;
     event.preventDefault();
-    document.getElementById("code").value +="*";
+    document.getElementById("code").value += "*";
   },
   retry: function() {
     countdown.codestr = "";
     countdown.charcount = 0;
-    document.getElementById("charcount").innerHTML =" <b>CharacterCount :</b> " + countdown.charcount;
+    document.getElementById("charcount").innerHTML = " <b>CharacterCount :</b> " + countdown.charcount;
     document.getElementById("code").value = "";
   },
   submit: function() {

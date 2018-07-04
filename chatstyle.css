@@ -10,9 +10,8 @@ body {
 }
 
 .box {
-  width: 500px;
-  min-width: 390px;
-  height: 600px;
+  width: auto;
+  height: auto;
   background: #fff;
   padding: 25px;
   margin: 20px auto;
@@ -22,7 +21,7 @@ body {
 .chatlogs {
   padding: 10px;
   width: 100%;
-  height: 450px;
+  height: 500px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -98,10 +97,11 @@ body {
 .chat-form button {
   background: #574744;
   padding: 5px 15px;
-  width: 50%;
+  width: 25%;
+  height: 40px;
   resize: none;
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
   color: #fff;
   border: none;
   margin: 0 10px;
@@ -125,7 +125,7 @@ body {
   height: 50px;
 }
 
-.counters p{
+.counters p {
   padding: 10px;
   width: 50%;
   border: 2px solid #eee;
@@ -140,12 +140,12 @@ body {
 .codebox {
   padding: 10px;
   width: 100%;
-  height: 400px;
+  height: auto;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
-.codebox textarea{
+.codebox textarea {
   padding: 10px;
   width: 100%;
   height: 400px;
@@ -168,37 +168,40 @@ body {
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal-content textarea {

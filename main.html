@@ -32,7 +32,10 @@
       background-position: center;
       background-size: cover;
       color: black;
-      padding: 50px 25px;
+      height: 643px;
+      width: auto;
+      overflow-y: scroll;
+      padding: 60px 50px;
     }
 
     .container-fluid {
@@ -224,16 +227,21 @@
 
     .column {
       float: left;
-      width: 50%;
+      width: 30%;
+      height: auto;
+    }
+
+    .column2 {
+      float: left;
+      width: 70%;
+      height: auto;
     }
 
     .row:after {
-      content: "";
+      /* content: ""; */
       display: table;
       clear: both;
-      padding: 10px 50px 20px;
     }
-
     @media screen and (max-width: 600px) {
       .column {
         width: 100%;
@@ -251,62 +259,61 @@
       </div>
     </div>
   </nav>
-
-  <div class="jumbotron">
-    <h2>Problem Title</h2>
-    <p> Problem Statement here ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit necessitatibus provident asperiores sed ex ipsa odit deleniti hic corrupti tempora corporis voluptatem debitis. Eaque adipisci tenetur, necessitatibus
-      consequuntur error.</p>
-    <h3><b>Input</b></h3>
-    <p> Input here ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit necessitatibus provident asperiores sed ex ipsa odit deleniti hic corrupti tempora corporis voluptatem debitis. Eaque adipisci tenetur, necessitatibus consequuntur
-      error.
-    </p>
-    <h3><b>Output</b></h3>
-    <p> Output here ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit necessitatibus provident asperiores sed ex ipsa odit deleniti hic corrupti tempora corporis voluptatem debitis. Eaque adipisci tenetur, necessitatibus consequuntur
-      error.
-    </p>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="column">
-        <div class="box">
-          <div class="chatlogs" id="chatbox">
-            <div class="chat friend">
-              <div class="user-photo"><img src="resources/bot.png"></div>
-              <p class="chat-message">Hi! and welcome.</p>
-            </div>
-          </div>
-          <div class="chat-form">
-            <input type="text" id="message" placeholder="Type here.." onkeypress="keypress(event)">
-            <!-- <textarea id="message" placeholder="Type here.." onkeypress="keypress(event)"></textarea> -->
-            <button onclick="var msg=document.getElementById('message').value;add(msg)">Send</button>
+  <div class="row">
+    <div class="column">
+      <!-- chat frame -->
+      <div class="box">
+        <div class="chatlogs" id="chatbox">
+          <div class="chat friend">
+            <div class="user-photo"><img src="resources/bot.png"></div>
+            <p class="chat-message">Hi! and welcome.</p>
           </div>
         </div>
-      </div>
-      <div class="column">
-        <div id="modal" class="modal">
-          <div class="modal-content">
-            <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
-            <textarea id='result' disabled></textarea>
-          </div>
-        </div>
-        <div class="box">
-          <div class="counters">
-            <p id="timer"> </p>
-            <p id="charcount"> <b>CharacterCount :</b> 0 </p>
-          </div>
-          <div class="codebox">
-            <input type="password" placeholder="Type here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()">
-          </div>
-          <div class="chat-form">
-            <button type="button" onclick="countdown.retry()">Retry</button>
-            <button type="button" onclick="countdown.submit()">Submit</button>
-          </div>
+        <div class="chat-form">
+          <input type="text" id="message" placeholder="Type here.." onkeypress="keypress(event)">
+          <!-- <textarea id="message" placeholder="Type here.." onkeypress="keypress(event)"></textarea> -->
+          <button onclick="var msg=document.getElementById('message').value;add(msg)">Send</button>
         </div>
       </div>
     </div>
+    <div class="column2">
+      <div class="jumbotron">
+        <h2>Problem Title</h2>
+        <p> Problem Statement here ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit necessitatibus provident asperiores sed ex ipsa odit deleniti hic corrupti tempora corporis voluptatem debitis. Eaque adipisci tenetur, necessitatibus
+          consequuntur error.</p>
+        <h3><b>Input</b></h3>
+        <p> Input here ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit necessitatibus provident asperiores sed ex ipsa odit deleniti hic corrupti tempora corporis voluptatem debitis. Eaque adipisci tenetur, necessitatibus consequuntur
+          error.
+        </p>
+        <h3><b>Output</b></h3>
+        <p> Output here ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit necessitatibus provident asperiores sed ex ipsa odit deleniti hic corrupti tempora corporis voluptatem debitis. Eaque adipisci tenetur, necessitatibus consequuntur
+          error.
+        </p>
+      </div>
+    </div>
   </div>
-
-
+  <div class="row" id="codehere">
+    <!-- code frame -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+        <textarea id='result' disabled></textarea>
+      </div>
+    </div>
+    <div class="box">
+      <div class="counters">
+        <p id="timer"> </p>
+        <p id="charcount"> <b>CharacterCount :</b> 0 </p>
+      </div>
+      <div class="codebox">
+        <textarea placeholder="Type your code here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()"></textarea>
+      </div>
+      <div class="chat-form">
+        <button type="button" onclick="countdown.retry()">Retry</button>
+        <button type="button" onclick="countdown.submit()">Submit</button>
+      </div>
+    </div>
+  </div>
   <footer class="container-fluid text-center">
     <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
