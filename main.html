@@ -36,6 +36,7 @@
       width: auto;
       overflow-y: scroll;
       padding: 60px 50px;
+      display: none;
     }
 
     .container-fluid {
@@ -237,11 +238,6 @@
       height: auto;
     }
 
-    .row:after {
-      /* content: ""; */
-      display: table;
-      clear: both;
-    }
     @media screen and (max-width: 600px) {
       .column {
         width: 100%;
@@ -250,7 +246,7 @@
   </style>
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60"onload="countdown.clock();">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -259,6 +255,16 @@
       </div>
     </div>
   </nav>
+  <div id="instmodal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="modalClose()">&times;</span>
+      <p>
+        <h2 text-align="center"><b>Instructions</b></h2>
+        Instructions here.... <br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
   <div class="row">
     <div class="column">
       <!-- chat frame -->
@@ -277,7 +283,7 @@
       </div>
     </div>
     <div class="column2">
-      <div class="jumbotron">
+      <div class="jumbotron" id="question">
         <h2>Problem Title</h2>
         <p> Problem Statement here ... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, fugit necessitatibus provident asperiores sed ex ipsa odit deleniti hic corrupti tempora corporis voluptatem debitis. Eaque adipisci tenetur, necessitatibus
           consequuntur error.</p>
@@ -306,7 +312,14 @@
         <p id="charcount"> <b>CharacterCount :</b> 0 </p>
       </div>
       <div class="codebox">
-        <textarea placeholder="Type your code here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()"></textarea>
+        <select class="selectpicker" required onchange="langSelect()" id="language">
+           <option value="Select Language" selected disabled>Select Language</option>
+           <option value="c">C</option>
+           <option value="cpp">C++</option>
+           <option value="java">JAVA</option>
+           <option value="python">Python</option>
+        </select>
+        <textarea placeholder="Type your code here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()" disabled></textarea>
       </div>
       <div class="chat-form">
         <button type="button" onclick="countdown.retry()">Retry</button>

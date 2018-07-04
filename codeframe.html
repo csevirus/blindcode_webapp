@@ -22,7 +22,14 @@
       <p id="charcount"> <b>CharacterCount :</b> 0 </p>
     </div>
     <div class="codebox">
-      <textarea placeholder="Type here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()"></textarea>
+      <select class="selectpicker" required onchange="langSelect()" id="language">
+         <option value="Select Language" selected disabled>Select Language</option>
+         <option value="c">C</option>
+         <option value="cpp">C++</option>
+         <option value="java">JAVA</option>
+         <option value="python">Python</option>
+      </select>
+      <textarea placeholder="Type your code here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()" disabled></textarea>
     </div>
     <div class="chat-form">
       <button type="button" onclick="countdown.retry()">Retry</button>

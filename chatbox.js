@@ -1,5 +1,5 @@
 var idx = 0;
-var ques = ["What is your name?", "What is your college name ?", "Your roll no. ?", "Your contact no. ?", "Your Email address ?", "Which Language do you prefer ?", "Please start the contest."];
+var ques = ["What is your name?", "What is your college name ?", "Your roll no. ?", "Your contact no. ?", "Your Email address ?", "Your time is started, please start the contest."];
 
 var invalidResponse = "Please enter a valid response";
 
@@ -59,12 +59,13 @@ function isValidResponse(msg) {
         user.email = msg;
         return true;
       }
-    case 6:
-      user.lang = msg;
-      return true;
     default:
       return true;
   }
+}
+function langSelect() {
+  user.lang = document.getElementById("language").value;
+  document.getElementById("code").disabled = false;
 }
 
 function myTrim(x) {
@@ -78,7 +79,7 @@ function add(msg) {
   document.getElementById("chatbox").innerHTML += "<div class='chat self'><div class='user-photo'></div><p class='chat-message'>" + msg + "</p></div>";
   document.getElementById("message").value = "";
   var next = "";
-  if (idx > 6)
+  if (idx >= 6)
     next = "Sorry, but I am not programmed to talk further"
   else if (isValidResponse(msg)) {
     next = ques[idx];
@@ -87,11 +88,22 @@ function add(msg) {
     next = invalidResponse;
   }
   document.getElementById("chatbox").innerHTML += "<div class='chat friend'><div class='user-photo'><img src='resources/bot.png'></div><p class='chat-message'>" + next + "</p></div>";
-  document.getElementById("chatbox").scrollTop += 200;
+  document.getElementById("chatbox").scrollTop += 220;
+  if(idx == 6)
+  {
+    document.getElementById('instmodal').style.display = "block";
+    idx++;
+  }
+}
+
+function modalClose() {
+  document.getElementById('instmodal').style.display = "none";
+  document.getElementById('question').style.display = "block";
+  countdown.clock();
 }
 
 function keypress(event) {
-  console.log(event.keyCode);
+  // console.log(event.keyCode);
   if (event.keyCode == "13") {
     var msg = document.getElementById('message').value;
     add(msg);
