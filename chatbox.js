@@ -153,15 +153,12 @@ var countdown = {
       return ;
     }
     countdown.charcount += 1;
-    var str = ""
-    for (var i = 0; i < countdown.charcount; i++) {
-      str +="*";
-    }
-    document.getElementById("code").value = str;
     document.getElementById("charcount").innerHTML =" <b>CharacterCount :</b>" + countdown.charcount;
     var char = getChar(event);
     if(char != null)
     countdown.codestr += char;
+    event.preventDefault();
+    document.getElementById("code").value +="*";
   },
   retry: function() {
     countdown.codestr = "";
