@@ -47,7 +47,7 @@
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif; */
-      background-image: url("resources/bg.png");
+      background-image: url("{{ url_for('static', filename='bg.png') }}");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -255,7 +255,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand" href="index.html"><img src="/resources/logo.png" alt="Logo"></a>
+        <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -340,21 +340,21 @@
     <div class="row text-center slideanim">
       <div class="col-sm-4">
         <div class="thumbnail">
-          <img src="resources/upi.jpg" alt="upi" width="400" height="300">
+          <img src="{{ url_for('static', filename='upi.jpg') }}" alt="upi" width="400" height="300">
           <p><strong>UPI Number :</strong> BHIM, Tez, PhonePe, etc</p>
           <p> +91-8440015534</p>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
-          <img src="resources/paytm.jpg" alt="paytm" width="400" height="300">
+          <img src="{{ url_for('static', filename='paytm.jpg') }}" alt="paytm" width="400" height="300">
           <p><strong>PayTm :</strong></p>
           <p>+91-8440015534</p>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
-          <img src="resources/donate.png" alt="Bank Details" width="400" height="300">
+          <img src="{{ url_for('static', filename='donate.png') }}" alt="Bank Details" width="400" height="300">
           <p><strong>Bank :</strong>State Bank of India</p>
           <p><strong>Account Number :</strong> 20302074787</p>
           <p><strong>IFSC Code :</strong>SBIN0005699</p>

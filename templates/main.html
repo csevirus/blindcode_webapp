@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="chatstyle.css">
-  <script src="chatbox.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chatstyle.css') }}">
+  <script src="{{ url_for('static', filename='chatbox.js') }}" charset="utf-8"></script>
   <style>
     body {
       font: 400 15px Lato, sans-serif;
@@ -251,7 +251,7 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="./index.html"><img src="/resources/logo.png" alt="Logo"></a>
+        <a class="navbar-brand" href="./index.html"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
       </div>
     </div>
   </nav>
@@ -271,13 +271,12 @@
       <div class="box">
         <div class="chatlogs" id="chatbox">
           <div class="chat friend">
-            <div class="user-photo"><img src="resources/bot.png"></div>
+            <div class="user-photo"><img src="{{ url_for('static', filename='bot.png') }}"></div>
             <p class="chat-message">Hi! and welcome.</p>
           </div>
         </div>
         <div class="chat-form">
           <input type="text" id="message" placeholder="Type here.." onkeypress="keypress(event)">
-          <!-- <textarea id="message" placeholder="Type here.." onkeypress="keypress(event)"></textarea> -->
           <button onclick="var msg=document.getElementById('message').value;add(msg)">Send</button>
         </div>
       </div>
@@ -317,7 +316,7 @@
            <option value="c">C</option>
            <option value="cpp">C++</option>
            <option value="java">JAVA</option>
-           <option value="python">Python</option>
+           <option value="py">Python</option>
         </select>
         <textarea placeholder="Type your code here.." id="code" onkeypress="countdown.charpress(event)" onpaste="noPaste()" disabled></textarea>
       </div>

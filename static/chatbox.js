@@ -9,7 +9,7 @@ var user = {
   rollno: "",
   contact: "",
   email: "",
-  lang: "cpp"
+  lang: ""
 };
 
 // this should validate the msg ques specific
@@ -87,7 +87,10 @@ function add(msg) {
   } else {
     next = invalidResponse;
   }
-  document.getElementById("chatbox").innerHTML += "<div class='chat friend'><div class='user-photo'><img src='resources/bot.png'></div><p class='chat-message'>" + next + "</p></div>";
+  for (var i = 0; i < 1000000000; i++) {
+    ;
+  }
+  document.getElementById("chatbox").innerHTML += "<div class='chat friend'><div class='user-photo'><img src='/static/bot.png'></div><p class='chat-message'>" + next + "</p></div>";
   document.getElementById("chatbox").scrollTop += 220;
   if(idx == 6)
   {
