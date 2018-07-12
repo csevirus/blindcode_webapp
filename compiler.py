@@ -11,7 +11,6 @@ class Operation:
         err = open(Operation.__p+"/err.txt","w")
         fin = open(Operation.__p+"/in.txt","r")
         rerr = open(Operation.__p+"/rerr.txt","w")
-        err.flush()
         run_err = ""
         p1 = Operation.__p + "/code"
         if lang == "py":
@@ -24,19 +23,19 @@ class Operation:
             err = open(Operation.__p+"/err.txt","r")
             run_err = err.read()
             if run_err == "" :
-                sr = subprocess.call([p1],stdout=out,stderr=rerr,stdin=fin)
+                subprocess.call([p1],stdout=out,stderr=rerr,stdin=fin)
         if lang == "java":
             path1 = Operation.__p + "/code.java"
-            sr = subprocess.call(["javac",path1],stderr=err)
-            sr = subprocess.call(["java","-cp",p,"code"],stdout=out,stderr=rerr,stdin=fin)
+            subprocess.call(["javac",path1],stderr=err)
+            subprocess.call(["java","-cp",p,"code"],stdout=out,stderr=rerr,stdin=fin)
         if lang == "c":
             path1 = Operation.__p + "/code.c"
-            sr = subprocess.call(["g++",path1,"-o",p1],stderr=err)
+            subprocess.call(["g++",path1,"-o",p1],stderr=err)
             err.close()
             err = open(Operation.__p+"/err.txt","r")
             run_err = err.read()
             if run_err == "" :
-                sr = subprocess.call([p1],stdout=out,stderr=rerr,stdin=fin)
+                subprocess.call([p1],stdout=out,stderr=rerr,stdin=fin)
         out.close()
         err.close()
         fin.close()
@@ -69,4 +68,5 @@ class Operation:
             err = open(Operation.__p+"/err.txt","r")
         else :
             err = open(Operation.__p+"/rerr.txt","r")
-        print err.read()
+        return err.read()
+Operation.check_ac();

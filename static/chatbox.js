@@ -1,5 +1,5 @@
 var idx = 0;
-var ques = ["What is your name?", "What is your college name ?", "Your roll no. ?", "Your contact no. ?", "Your Email address ?", "Your time is started, please start the contest."];
+var ques = ["What is your name?", "What is your college name ?", "Your roll no. ?", "Your contact no. ?", "Your Email address ?", "Thanks for the information. Good Luck.."];
 
 var invalidResponse = "Please enter a valid response";
 
@@ -9,7 +9,9 @@ var user = {
   rollno: "",
   contact: "",
   email: "",
-  lang: ""
+  lang: "",
+  codestr: "",
+  timeleft: 0,
 };
 
 // this should validate the msg ques specific
@@ -101,6 +103,7 @@ function add(msg) {
 
 function modalClose() {
   document.getElementById('instmodal').style.display = "none";
+  document.getElementById('tempspace').style.display = "none";
   document.getElementById('question').style.display = "block";
   countdown.clock();
 }
@@ -133,7 +136,6 @@ var countdown = {
   seconds: 0,
   x: 0,
   charcount: 0,
-  codestr: "",
   myClock: function() {
     if (countdown.seconds == 0) {
       countdown.minutes = countdown.minutes - 1;
@@ -165,19 +167,33 @@ var countdown = {
     document.getElementById("charcount").innerHTML = " <b>CharacterCount :</b>" + countdown.charcount;
     var char = getChar(event);
     if (char != null)
-      countdown.codestr += char;
+      user.codestr += char;
     event.preventDefault();
     document.getElementById("code").value += "*";
   },
   retry: function() {
-    countdown.codestr = "";
+    user.codestr = "";
     countdown.charcount = 0;
     document.getElementById("charcount").innerHTML = " <b>CharacterCount :</b> " + countdown.charcount;
     document.getElementById("code").value = "";
   },
   submit: function() {
     // display code written so far and the result
-    document.getElementById('result').value = countdown.codestr;
+    user.timeleft = (countdown.minutes)*60 + countdown.seconds ;
+    var request = new XMLHttpRequest();
+    request.open('POST','http://127.0.0.1:5000/submit',true);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.onreadystatechange = function () {
+      if (request.readyState === 4 && request.status === 200) {
+          var result = JSON.parse(request.responseText);
+          document.getElementById("status").innerHTML += result["status"];
+          document.getElementById("msg").innerHTML += result["msg"];
+          document.getElementById("testpass").innerHTML += result["testpass"];
+          document.getElementById("score").innerHTML += result["score"];
+      }
+    };
+    request.send(JSON.stringify(user));
+    document.getElementById('result').value = user.codestr;
     document.getElementById("modal").style.display = "block";
   }
 }
